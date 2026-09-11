@@ -1,4 +1,7 @@
 ﻿using System.Threading;
+using System;
+using System.IO;
+
 
 namespace SigmaCalculator2027
 {
@@ -7,6 +10,7 @@ namespace SigmaCalculator2027
     {
         public static void Menu()
         {
+            Accounts.fileExist();
             Console.CursorVisible = false;
             string logo = @"
  ,---.  ,--.                              ,-----.        ,--.              ,--.          ,--.                 
@@ -29,7 +33,7 @@ namespace SigmaCalculator2027
             Console.Write("                                      ");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Welcome to Sigma Calculator 2027!"); Console.ResetColor();
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("                               ");
             Console.WriteLine("Would you like to login or create a new user?");
             Console.WriteLine();
@@ -84,7 +88,150 @@ namespace SigmaCalculator2027
 
             }
 
+            switch (menuselect)
+            {
+                case 1:
+                    Console.Clear();
+                    //login
+                    Console.CursorVisible = true;
+
+                    Console.WriteLine();
+                    Console.WriteLine(Compactlogo);
+                    Console.WriteLine();
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine();
+
+                    string loginUser = "";
+                    string loginPass = "";
+
+                    
+                        Console.WriteLine("    Username: "); 
+                        Console.WriteLine("    Password: "); 
+
+                    int baseLine = Console.CursorTop;
+                    int usernameLine = baseLine - 2;
+                    int passwordLine = baseLine - 1;
+                    int inputOffset = 14;
+
+                    Console.SetCursorPosition(0, usernameLine); Console.ForegroundColor = ConsoleColor.DarkRed; Console.Write("    Username: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(inputOffset, usernameLine);
+                    loginUser = Console.ReadLine();
+
+                    Console.SetCursorPosition(0, usernameLine); Console.ForegroundColor = ConsoleColor.White; Console.Write("    Username: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(0, passwordLine); Console.ForegroundColor = ConsoleColor.DarkRed; Console.Write("    Password: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(inputOffset, passwordLine);
+                    loginPass = Console.ReadLine(); Console.WriteLine();
+
+                    Console.SetCursorPosition(0, passwordLine); Console.ForegroundColor = ConsoleColor.White; Console.Write("    Password: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(0, baseLine + 1);
+
+                    if (Accounts.TryLogin(loginUser, loginPass, out bool isAdmin))
+                    {
+                        Session.IsAdmin = isAdmin;
+                        Session.CurrentUser = loginUser;
+                        Console.WriteLine(isAdmin
+                            ?" welcome back, admin. easter eggs unlocked."
+                            : $"welcome back, {loginUser}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("login failed."); //send back to main
+                    }
+                    Console.ReadKey();
+                    break;
+
+                case 2:
+                    Console.Clear();
+                    //create account
+                    Console.CursorVisible = true;
+                    Console.Write("choose a username: ");
+                    string newUser = Console.ReadLine(); Console.WriteLine();
+                    if(Accounts.UsernameExists(newUser))
+                    {
+                        Console.WriteLine("that username is taken"); //send back to redo creation
+                        break;
+                    }
+                    Console.Write("choose passoword: ");
+                    string newPass = Console.ReadLine(); Console.WriteLine();
+                    Accounts.CreateUser(newUser, newPass);
+                    Console.WriteLine("account created"); //after acc creation, go to login screen.
+
+                    break;
+                case 3:
+                    Console.Clear(); Thread.Sleep(100);
+                    Environment.Exit(0);
+                    break;
+
+            }
+
         }
+
+
+
+        public static class Accounts //ennek a nagyreszet sajnos nem sajat magamtol csinaltam :(
+        {
+            private const string path = "users.txt";
+            public static void fileExist()
+            {
+                if(!File.Exists(path))
+                {
+                    File.WriteAllLines(path, new string[] { "levedadmin,yo:gurt27" }); //secret secret shhhh
+                }
+            }
+
+            public static void CreateUser(string username, string password)
+            {
+                File.AppendAllText(path, $"{username},{password}{Environment.NewLine}");
+            }
+
+            public static bool TryLogin(string username, string password, out bool isAdmin)
+            {
+                isAdmin = false;
+                string[] lines = File.ReadAllLines(path);
+
+                foreach(string line in lines)
+                {
+                    string[] parts = line.Split(',');
+                    string savedUser = parts[0];
+                    string savedPass = parts[1];
+
+                    if (savedUser == username && savedPass == password)
+                    {
+                        isAdmin = savedUser == "levedadmin";
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+
+            public static bool UsernameExists(string username)
+            {
+                if (!File.Exists(path)) return false;
+                foreach (string line in File.ReadAllLines(path))
+                {
+                   if (line.Split(',')[0] == username) return true;
+
+                }
+                return false;
+            }
+
+        }
+
+
+        public static class Session
+        {
+            public static bool IsAdmin = false;
+            public static string CurrentUser = "";
+
+        }
+
+
+
     }
 
 
@@ -98,3 +245,10 @@ namespace SigmaCalculator2027
     }
 
 }
+
+/*
+ * if (Session.IsAdmin)
+{
+    Console.WriteLine("Secret admin menu unlocked");
+}
+*/
