@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System;
 using System.IO;
+using System.ComponentModel.Design;
 
 
 namespace SigmaCalculator2027
@@ -168,6 +169,7 @@ namespace SigmaCalculator2027
                             }
                         }
                         
+                        
                     }
                     else
                     {
@@ -187,6 +189,7 @@ namespace SigmaCalculator2027
                         }
                         
                     }
+                    
                    
                     break;
 
