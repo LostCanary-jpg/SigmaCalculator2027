@@ -133,15 +133,61 @@ namespace SigmaCalculator2027
                     {
                         Session.IsAdmin = isAdmin;
                         Session.CurrentUser = loginUser;
-                        Console.WriteLine(isAdmin
-                            ?" welcome back, admin. easter eggs unlocked."
-                            : $"welcome back, {loginUser}.");
+                        if (isAdmin)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.Write("Welcome back, levedadmin."); Console.ForegroundColor = ConsoleColor.DarkRed; Console.WriteLine("     <Developer mode unlocked>"); Console.ResetColor();
+                            Thread.Sleep(467); Console.WriteLine();
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("Press Enter to Continue."); Console.ResetColor();
+                            ConsoleKeyInfo continueKey;
+                            continueKey = Console.ReadKey(true);
+                            switch(continueKey.Key)
+                            {
+                                case ConsoleKey.Enter:
+                                    Console.Clear();
+                                    SigmaMenu();
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkCyan;
+                            Console.WriteLine($"Welcome back, {loginUser}."); Console.ResetColor();
+                            Thread.Sleep(467); Console.WriteLine();
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("Press Enter to Continue."); Console.ResetColor();
+                            ConsoleKeyInfo continueKey;
+                            continueKey = Console.ReadKey(true);
+                            switch (continueKey.Key)
+                            {
+                                case ConsoleKey.Enter:
+                                    Console.Clear(); Console.WriteLine("good boy"); Thread.Sleep(67); Console.Clear();
+                                    SigmaMenu();
+                                    break;
+                            }
+                        }
+                        
                     }
                     else
                     {
-                        Console.WriteLine("login failed."); //send back to main
+                        Console.BackgroundColor = ConsoleColor.DarkMagenta; Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Login has failed."); //send back to main
+                        Thread.Sleep(467); Console.WriteLine();
+                        Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Press Enter to Continue."); Console.ResetColor();
+                        ConsoleKeyInfo continueKey;
+                        continueKey = Console.ReadKey(true);
+                        switch (continueKey.Key)
+                        {
+                            case ConsoleKey.Enter:
+                                Console.Clear();
+                                Start.Menu();
+                                break;
+                        }
+                        
                     }
-                    Console.ReadKey();
+                   
                     break;
 
                 case 2:
@@ -170,6 +216,13 @@ namespace SigmaCalculator2027
 
         }
 
+
+
+        public static void SigmaMenu()
+        {
+            Console.WriteLine("this is the sigma calc");
+            Console.ReadKey();
+        }
 
 
         public static class Accounts //ennek a nagyreszet sajnos nem sajat magamtol csinaltam :(
