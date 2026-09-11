@@ -193,20 +193,77 @@ namespace SigmaCalculator2027
                 case 2:
                     Console.Clear();
                     //create account
-                    Console.CursorVisible = true;
-                    Console.Write("choose a username: ");
-                    string newUser = Console.ReadLine(); Console.WriteLine();
-                    if(Accounts.UsernameExists(newUser))
-                    {
-                        Console.WriteLine("that username is taken"); //send back to redo creation
-                        break;
-                    }
-                    Console.Write("choose passoword: ");
-                    string newPass = Console.ReadLine(); Console.WriteLine();
-                    Accounts.CreateUser(newUser, newPass);
-                    Console.WriteLine("account created"); //after acc creation, go to login screen.
 
+                    Console.CursorVisible = true;
+                    Console.WriteLine();
+                    Console.WriteLine(Compactlogo);
+                    Console.WriteLine();
+                    Console.WriteLine("------------------------------");
+                    Console.WriteLine();
+
+                    string newUser = "";
+                    string newPass = "";
+
+                    Console.WriteLine("    Choose a Username: ");
+                    Console.WriteLine("    Choose a Password: ");
+
+                    int startLine = Console.CursorTop;
+                    int createLine = startLine - 2;
+                    int passLine = startLine - 1;
+                    int passOffset = 23;
+
+                    Console.SetCursorPosition(0, createLine); Console.ForegroundColor = ConsoleColor.DarkRed; Console.Write("    Choose a Username: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(passOffset, createLine);
+                    newUser = Console.ReadLine();
+
+                    Console.SetCursorPosition(0, createLine); Console.ForegroundColor = ConsoleColor.White; Console.Write("    Choose a Username: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(0, passLine); Console.ForegroundColor = ConsoleColor.DarkRed; Console.Write("    Choose a Password: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(passOffset, passLine);
+                    newPass = Console.ReadLine();
+
+                    Console.SetCursorPosition(0, passLine); Console.ForegroundColor = ConsoleColor.White; Console.Write("    Choose a Password: "); Console.ResetColor();
+
+                    Console.SetCursorPosition(0, startLine + 1);
+
+
+                    if (Accounts.UsernameExists(newUser))
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("That username is already taken!"); //send back to redo creation
+                        Thread.Sleep(467); Console.WriteLine();
+                        Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Press Enter to Continue."); Console.ResetColor();
+                        ConsoleKeyInfo createkey;
+                        createkey = Console.ReadKey(true);
+                        switch (createkey.Key)
+                        {
+                            case ConsoleKey.Enter:
+                                Console.Clear();
+                                break;
+                        }
+                        goto case 2;
+                    }
+
+                    Accounts.CreateUser(newUser, newPass);
+                    Console.WriteLine();
+                    Console.WriteLine("Account has been succesfully created!"); //after acc creation, go to login screen.
+                    Thread.Sleep(467); Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Press Enter to Continue."); Console.ResetColor();
+                    ConsoleKeyInfo createkey2;
+                    createkey2 = Console.ReadKey(true);
+                    switch (createkey2.Key)
+                    {
+                        case ConsoleKey.Enter:
+                            Console.Clear();
+                            Start.Menu();
+                            break;
+                    }
                     break;
+
                 case 3:
                     Console.Clear(); Thread.Sleep(100);
                     Environment.Exit(0);
