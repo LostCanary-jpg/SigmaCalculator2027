@@ -217,15 +217,61 @@ namespace SigmaCalculatorMenu
                                 blinkInt = 1;
                             }
                         }
-                        if (SmenuSelect == 4)
+                        if (SmenuSelect == 4) //Psalms
+                        {
+                            while (blinkInt == 1)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                              ");
+                                Console.Write("   "); Console.Write(" Calculator "); Console.WriteLine("   "); 
+                                Console.WriteLine();
+                                Console.Write("                                                   ");
+                                Console.WriteLine("Lottery"); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                "); Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.Write("->[");Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" Psalms "); Console.ForegroundColor = ConsoleColor.DarkRed; Console.WriteLine("]<-"); Console.ResetColor();
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+                                Thread.Sleep(467);
+                                blinkInt = 2;
+                            }
+                            while (blinkInt == 2)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                              "); //56
+                                
+                                Console.Write("   "); Console.Write(" Calculator "); Console.WriteLine("   ");
+                                Console.WriteLine();
+                                Console.Write("                                                   ");
+                                Console.WriteLine("Lottery"); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                    "); Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("Psalms"); Console.ResetColor();
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+
+                                Thread.Sleep(467);
+                                blinkInt = 1;
+                            }
+
+                        }
+                        if (SmenuSelect == 5) //logout
                         {
 
                         }
-                        if (SmenuSelect == 5)
-                        {
-
-                        }
-
+                        //after this gonna add Dev extras for me
                         if (Console.KeyAvailable)
                         {
                             Smainmenu = Console.ReadKey(true);
