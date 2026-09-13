@@ -65,31 +65,52 @@ namespace SigmaCalculatorMenu
                         Console.SetCursorPosition(leftM, topM);
                         
 
-                        if (SmenuSelect == 1)
+                        if (SmenuSelect == 1) //calculator
                         {
                             while(blinkInt ==1)
                             {
                                 Console.Clear();ProvideUI();
                                 Console.WriteLine();
-                                Console.Write("                                              "); //56
-                                Console.WriteLine("->[ Calculator ]<-");
+                                Console.Write("                                              "); Console.ForegroundColor = ConsoleColor.DarkRed; 
+                                Console.Write("->["); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" Calculator "); Console.ForegroundColor = ConsoleColor.DarkRed; Console.WriteLine("]<-"); Console.ResetColor();
                                 Console.WriteLine();
                                 Console.Write("                                                   ");
-                                Console.WriteLine("Lottery");
-                                Thread.Sleep(400);
+                                Console.WriteLine("Lottery"); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+                                Thread.Sleep(467);
                                 blinkInt = 2;
                             }
-                            while(blinkInt != 1)
+                            while(blinkInt == 2)
                             {
                                 Console.Clear(); ProvideUI();
                                 Console.WriteLine();
                                 Console.Write("                                              "); //56
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.Write("███"); Console.ResetColor(); Console.Write(" Calculator "); Console.ForegroundColor = ConsoleColor.Black;  Console.WriteLine("███"); Console.ResetColor();
+                                Console.Write("███"); Console.ForegroundColor = ConsoleColor.White; Console.Write(" Calculator "); Console.ForegroundColor = ConsoleColor.Black;  Console.WriteLine("███"); Console.ResetColor();
                                 Console.WriteLine();
                                 Console.Write("                                                   ");
-                                Console.WriteLine("Lottery");
-                                Thread.Sleep(400);
+                                Console.WriteLine("Lottery"); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+
+                                Thread.Sleep(467);
                                 blinkInt = 1;
                             }
                             
@@ -98,21 +119,134 @@ namespace SigmaCalculatorMenu
 
                         }
                         
-                        if (SmenuSelect == 2)
+                        if (SmenuSelect == 2) //lottery
                         {
+                            while (blinkInt == 1)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                              ");
+                                Console.Write("   "); Console.Write(" Calculator ");  Console.WriteLine("   "); 
+                                Console.WriteLine();
+                                Console.Write("                                               "); Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.Write("->["); Console.ResetColor(); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" Lottery "); Console.ForegroundColor = ConsoleColor.DarkRed; Console.WriteLine("]<-"); Console.ResetColor(); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+                                Thread.Sleep(467);
+                                blinkInt = 2;
+                            }
+                            while (blinkInt == 2)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                                 "); //59
+                                Console.WriteLine(" Calculator ");
+                                Console.WriteLine();
+                                Console.Write("                                               "); Console.ForegroundColor = ConsoleColor.Black;
+                                Console.Write("███"); Console.ForegroundColor = ConsoleColor.White; Console.Write(" Lottery "); Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("███"); Console.ResetColor(); Console.WriteLine();
+                                Console.Write("                                                  ");
+                                Console.WriteLine("Encryption"); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+
+                                Thread.Sleep(467);
+                                blinkInt = 1;
+                            }
 
                         }
-                        if (SmenuSelect == 3)
+                        if (SmenuSelect == 3) //encryption
                         {
+                            while (blinkInt == 1)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                              ");
+                                Console.Write("   "); Console.Write(" Calculator "); Console.WriteLine("   ");
+                                Console.WriteLine();
+                                Console.Write("                                               ");
+                                Console.Write("   "); Console.Write(" Lottery "); Console.WriteLine("   ");; Console.WriteLine();
+                                Console.Write("                                              "); Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.Write("->["); Console.ForegroundColor = ConsoleColor.DarkYellow; Console.Write(" Encryption "); Console.ForegroundColor = ConsoleColor.DarkRed; Console.WriteLine("]<-"); Console.ResetColor(); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
 
+
+                                Thread.Sleep(467);
+                                blinkInt = 2;
+                            }
+                            while (blinkInt == 2)
+                            {
+                                Console.Clear(); ProvideUI();
+                                Console.WriteLine();
+                                Console.Write("                                                 "); //59
+                                Console.WriteLine(" Calculator ");
+                                Console.WriteLine();
+                                Console.Write("                                                  "); 
+                                Console.Write(" Lottery ");  Console.WriteLine(); Console.WriteLine();
+                                Console.Write("                                              "); 
+                                Console.ForegroundColor = ConsoleColor.Black; Console.Write("███"); Console.ForegroundColor = ConsoleColor.White;
+                                Console.Write(" Encryption "); Console.ForegroundColor = ConsoleColor.Black; Console.WriteLine("███"); Console.ResetColor(); Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Psalms");
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.Write("                                                    ");
+                                Console.WriteLine("Logout");
+
+
+
+                                Thread.Sleep(467);
+                                blinkInt = 1;
+                            }
                         }
                         if (SmenuSelect == 4)
                         {
 
                         }
+                        if (SmenuSelect == 5)
+                        {
 
+                        }
+
+                        if (Console.KeyAvailable)
+                        {
+                            Smainmenu = Console.ReadKey(true);
+
+                            switch (Smainmenu.Key)
+                            {
+                                case ConsoleKey.DownArrow:
+                                    SmenuSelect = SmenuSelect == 5 ? 1 : SmenuSelect + 1;
+                                    break;
+                                case ConsoleKey.UpArrow:
+                                    SmenuSelect = SmenuSelect == 1 ? 5 : SmenuSelect - 1;
+                                    break;
+                                case ConsoleKey.Enter:
+                                    Smenu = false;
+                                    break;
+                            }
+
+                        }
 
                     }
+                   
                 }
 // non admin
                 else
