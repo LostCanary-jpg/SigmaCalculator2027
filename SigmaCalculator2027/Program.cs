@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.ComponentModel.Design;
+using SigmaCalculatorMenu;
 
 
 namespace SigmaCalculator2027
@@ -147,7 +148,7 @@ namespace SigmaCalculator2027
                             {
                                 case ConsoleKey.Enter:
                                     Console.Clear();
-                                    SigmaMenu();
+                                    Sigma_Menu.SmRun();
                                     break;
                             }
                         }
@@ -164,7 +165,7 @@ namespace SigmaCalculator2027
                             {
                                 case ConsoleKey.Enter:
                                     Console.Clear(); Console.WriteLine("good boy"); Thread.Sleep(67); Console.Clear();
-                                    SigmaMenu();
+                                    Sigma_Menu.SmRun();
                                     break;
                             }
                         }
@@ -245,6 +246,7 @@ namespace SigmaCalculator2027
                         {
                             case ConsoleKey.Enter:
                                 Console.Clear();
+                                Start.Menu();
                                 break;
                         }
                         goto case 2;
@@ -277,12 +279,6 @@ namespace SigmaCalculator2027
         }
 
 
-
-        public static void SigmaMenu()
-        {
-            Console.WriteLine("this is the sigma calc");
-            Console.ReadKey();
-        }
 
 
         public static class Accounts //ennek a nagyreszet sajnos nem sajat magamtol csinaltam :(
